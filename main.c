@@ -25,17 +25,11 @@ int parse_int(char*);
 
 int diagonalDifference(int arr_rows, int arr_columns, int** arr) {
 
-int i,j, result=0;
+int i, result=0;
 int sum1=0, sum2=0;
-for (i=0, j=0; i<arr_rows; i++, j++) {
-    for (j=0; j<arr_columns; j++) {
-       if(i==j){
-       sum1 +=arr[i][j];  
-        }
-        if ((i+j)==(arr_rows-1 )){
-            sum2 += arr[i][j];
-        }
-    }
+for (i=0; i<arr_rows; i++) {
+    sum1 +=arr[i][i];  
+    sum2 += arr[i][arr_columns-i-1];
 }
 printf("%d   %d", sum1, sum2);
 result = (sum1 > sum2)? (sum1-sum2): (sum2-sum1);
